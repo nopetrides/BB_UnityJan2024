@@ -40,17 +40,8 @@ MonoBehaviour:
       <Health>k__BackingField: 1
       <Speed>k__BackingField: 2
       <SpawnRate>k__BackingField: 0.2
-  - Type: 5
-    Prefab: {fileID: 8045960173024280345, guid: bfb530e8bbe6a465ebda15e87360a881,
-      type: 3}
-    Data:
-      <Class>k__BackingField: 2
-      <AttackPower>k__BackingField: 5
-      <Health>k__BackingField: 1
-      <Speed>k__BackingField: 1
-      <SpawnRate>k__BackingField: 0.1
   - Type: 4
-    Prefab: {fileID: 8045960173024280345, guid: bfb530e8bbe6a465ebda15e87360a881,
+    Prefab: {fileID: 3154278810743575378, guid: 58179110af7c944a8a3b7b9a65172324,
       type: 3}
     Data:
       <Class>k__BackingField: 2
@@ -58,3 +49,12 @@ MonoBehaviour:
       <Health>k__BackingField: 1
       <Speed>k__BackingField: 1
       <SpawnRate>k__BackingField: 0.8
+  - Type: 5
+    Prefab: {fileID: 8949325234925616757, guid: d9fe5c64a8bb84c5a99644cbe62fda88,
+      type: 3}
+    Data:
+      <Class>k__BackingField: 2
+      <AttackPower>k__BackingField: 5
+      <Health>k__BackingField: 1
+      <Speed>k__BackingField: 2
+      <SpawnRate>k__BackingField: 0.1

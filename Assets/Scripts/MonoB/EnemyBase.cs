@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace BB
@@ -7,6 +8,7 @@ namespace BB
     /// </summary>
     internal class EnemyBase : MonoBehaviour
     {
+        [SerializeField] private Rigidbody Rb;
         private EnemyManager _manager;
         private EnemyData.EnemyType _type;
         private EnemyData _data;
@@ -28,6 +30,12 @@ namespace BB
             _currentAttackPower = _data.AttackPower;
             _currentHealth = _data.Health;
             _currentSpeed = _data.Speed;
+        }
+
+        private void OnEnable()
+        {
+            Rb.velocity = Vector3.zero;
+            Rb.angularVelocity = Vector3.zero;
         }
 
         internal void TakeDamage()
