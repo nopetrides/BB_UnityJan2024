@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,33 +10,82 @@ namespace BB
     internal class EnemyManager : MonoBehaviour
     {
         [SerializeField] private EnemiesScriptable EnemiesData;
+        internal EnemiesScriptable.EnemyObject[] AllEnemies => EnemiesData.Enemies;
         
-        private ObjectPool<EnemyBase> _pool;
+        private Dictionary<EnemyData.EnemyType, ObjectPool<EnemyBase>> _pools;
 
         internal void InitializePool()
         {
-            
+            _pools = new Dictionary<EnemyData.EnemyType, ObjectPool<EnemyBase>>();
+            foreach (EnemyData.EnemyType enemyType in Enum.GetValues(typeof(EnemyData.EnemyType)))
+            {
+                if (!_pools.ContainsKey(enemyType))
+                {
+                    _pools.Add(enemyType,
+                        new ObjectPool<EnemyBase>(
+                            () => CreatePooledItem(enemyType),
+                            OnTakeFromPool,
+                            OnReturnedToPool,
+                            OnDestroyPoolObject,
+                            true, 
+                            10, 
+                            100));
+                }
+            }
         }
 
-        internal EnemyBase SpawnEnemy(EnemyData data)
+        private EnemyBase CreatePooledItem(EnemyData.EnemyType t)
         {
-            return _pool.Get();
+            var toCreate = GetEnemy(t);
+            if (toCreate == null)
+            {
+                Debug.LogError("Failed to load Enemy Type: " + t);
+                return null;
+            }
+            EnemyBase enemy = Instantiate(toCreate.Prefab, transform);
+            enemy.Init(this, t, toCreate.Data);
+            return enemy;
         }
-
-        internal void ReleaseEnemy(EnemyBase enemy)
+        
+        private void OnTakeFromPool(EnemyBase enemy)
         {
-            _pool.Release(enemy);
+            enemy.gameObject.SetActive(true);
+        }
+        private void OnReturnedToPool(EnemyBase enemy)
+        {
+            enemy.gameObject.SetActive(false);
         }
 
+        private void OnDestroyPoolObject(EnemyBase enemy)
+        {
+            Destroy(enemy.gameObject);
+        }
+
+        internal EnemyBase SpawnEnemy(EnemyData.EnemyType type, EnemyData data)
+        {
+            var enemy = _pools[type].Get();
+            enemy.SetData(data);
+            return enemy;
+        }
+
+        internal void ReleaseEnemy(EnemyData.EnemyType type, EnemyBase enemy)
+        {
+            _pools[type].Release(enemy);
+        }
+
+        private EnemiesScriptable.EnemyObject GetEnemy(EnemyData.EnemyType t)
+        {
+            return AllEnemies.FirstOrDefault((e) => e.Type == t);
+        }
+        
         internal EnemiesScriptable.EnemyObject[] GetEnemiesByType(EnemyData.EnemyType t)
         {
-            
-            return EnemiesData.Enemies.Where(enemy => enemy.Type == t).ToArray();
+            return AllEnemies.Where(enemy => enemy.Type == t).ToArray();
         }
 
         internal EnemiesScriptable.EnemyObject[] GetEnemiesByClass(EnemyData.EnemyClass c)
         {
-            return EnemiesData.Enemies.Where(enemy => enemy.Data.Class == c).ToArray();
+            return AllEnemies.Where(enemy => enemy.Data.Class == c).ToArray();
         }
     }
 }

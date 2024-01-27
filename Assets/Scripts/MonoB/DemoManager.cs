@@ -11,13 +11,7 @@ public class DemoManager : MonoBehaviour
         EnemyPool.InitializePool();
         foreach (var sp in Spawners)
         {
-            
+            sp.Init(EnemyPool);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

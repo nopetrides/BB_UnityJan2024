@@ -15,7 +15,7 @@ namespace BB
             }
         }
 
-        private void OnCollisionStay(Collision collision)
+        private void OnCollisionEnter(Collision collision)
         {
             var enemy = collision.gameObject.GetComponent<EnemyBase>();
             if (enemy != null)

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies:
   - Type: 1
-    Prefab: {fileID: 0}
+    Prefab: {fileID: 8995700310350305598, guid: 1a510054678694f26bcd536d793245a9,
+      type: 3}
     Data:
-      Class: 0
-      AttackPower: 0
-      Health: 0
-      Speed: 0
-      SpawnRate: 0
+      Class: 1
+      AttackPower: 2
+      Health: 1
+      Speed: 1
+      SpawnRate: 0.4

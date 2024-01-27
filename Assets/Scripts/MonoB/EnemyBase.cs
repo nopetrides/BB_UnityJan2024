@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using BB;
 using UnityEngine;
 
 namespace BB
@@ -17,6 +14,11 @@ namespace BB
         internal void Init(EnemyManager manager, EnemyData.EnemyType type, EnemyData data)
         {
             _type = type;
+            SetData(data);
+        }
+
+        internal void SetData(EnemyData data)
+        {
             _data = data;
         }
 
@@ -32,7 +34,7 @@ namespace BB
         private void OnDeath()
         {
             if (_manager != null)
-                _manager.ReleaseEnemy(this);
+                _manager.ReleaseEnemy(_type, this);
         }
     }
 }
