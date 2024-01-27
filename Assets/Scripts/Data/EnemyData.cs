@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace BB
 {
@@ -24,11 +25,10 @@ namespace BB
             Archer,
             Assassin
         }
-        
-        public EnemyClass Class;
-        public float AttackPower;
-        public float Health;
-        public float Speed;
-        public float SpawnRate;
+        [field: SerializeField] public EnemyClass Class { get; private set; }
+        [field: SerializeField] public float AttackPower { get; private set; }
+        [field: SerializeField] public float Health { get; private set; }
+        [field: SerializeField] public float Speed { get; private set; }
+        [field: SerializeField] public float SpawnRate { get; private set; }
     }
 }

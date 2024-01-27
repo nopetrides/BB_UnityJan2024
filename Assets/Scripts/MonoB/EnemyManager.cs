@@ -10,12 +10,16 @@ namespace BB
     internal class EnemyManager : MonoBehaviour
     {
         [SerializeField] private EnemiesScriptable EnemiesData;
-        internal EnemiesScriptable.EnemyObject[] AllEnemies => EnemiesData.Enemies;
         
         private Dictionary<EnemyData.EnemyType, ObjectPool<EnemyBase>> _pools;
 
+        private EnemiesScriptable _runtimeData;
+        internal EnemiesScriptable.EnemyObject[] AllEnemies => _runtimeData.Enemies;
+
         internal void InitializePool()
         {
+            _runtimeData = Instantiate(EnemiesData);
+            
             _pools = new Dictionary<EnemyData.EnemyType, ObjectPool<EnemyBase>>();
             foreach (EnemyData.EnemyType enemyType in Enum.GetValues(typeof(EnemyData.EnemyType)))
             {

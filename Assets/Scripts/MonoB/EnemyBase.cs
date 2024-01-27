@@ -10,9 +10,14 @@ namespace BB
         private EnemyManager _manager;
         private EnemyData.EnemyType _type;
         private EnemyData _data;
+        
+        private float _currentAttackPower;
+        private float _currentHealth;
+        private float _currentSpeed;
 
         internal void Init(EnemyManager manager, EnemyData.EnemyType type, EnemyData data)
         {
+            _manager = manager;
             _type = type;
             SetData(data);
         }
@@ -20,12 +25,15 @@ namespace BB
         internal void SetData(EnemyData data)
         {
             _data = data;
+            _currentAttackPower = _data.AttackPower;
+            _currentHealth = _data.Health;
+            _currentSpeed = _data.Speed;
         }
 
         internal void TakeDamage()
         {
-            _data.Health--;
-            if (_data.Health <= 0)
+            _currentHealth--;
+            if (_currentHealth <= 0)
             {
                 OnDeath();
             }
