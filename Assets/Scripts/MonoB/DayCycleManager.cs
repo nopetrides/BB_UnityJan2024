@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 namespace BB
 {
-    public class DayCycleManager : MonoBehaviour
+    internal class DayCycleManager : MonoBehaviour
     {
         [SerializeField] private DayCycleData TimeOfDayData;
         [SerializeField] private GameObject[] TimeOfDayElements;
         [SerializeField] private Text TimeOfDayText;
 
         private DayCycleData.TimeOfDay _timeOfDay;
+        internal DayCycleData.TimeOfDay CurrentTime => _timeOfDay; 
 
         internal void Init(EnemyManager enemyManager)
         {

@@ -1,6 +1,8 @@
-using System.Threading;
 using OpenAI;
 using UnityEngine;
+
+//using System.Linq;
+//using UnityEngine.Networking;
 
 namespace BB
 {
@@ -9,9 +11,10 @@ namespace BB
         [SerializeField] private EnemyManager EnemyPool;
         [SerializeField] private DayCycleManager DayCycle;
         [SerializeField] private SpawnPoint[] Spawners;
+        //[SerializeField] private MeshRenderer Floor;
 
-        private OpenAIApi _openAi = new();
-        private CancellationTokenSource _token = new CancellationTokenSource();
+        private OpenAIApi _openAi;
+        //private CancellationTokenSource _token = new ();
         
         // Start is called before the first frame update
         private void Start()
@@ -22,11 +25,24 @@ namespace BB
             {
                 sp.Init(EnemyPool);
             }
+            // Need a valid account
+            //OpenAI();
         }
-
-        private void OpenAI()
+/*
+        private async void OpenAI()
         {
-            
+            _openAi = new OpenAIApi("PutAValidTokenHere");
+            var request = new CreateImageRequest
+            {
+                Prompt = DayCycle.CurrentTime.ToString()
+            };
+            var task = await _openAi.CreateImage(request);
+            var response = task.Data.FirstOrDefault();
+            var url = response.Url;
+            var uwr = UnityWebRequestTexture.GetTexture(url);
+            var texture = DownloadHandlerTexture.GetContent(uwr);
+            Floor.material.mainTexture = texture;
         }
+*/
     }
 }
