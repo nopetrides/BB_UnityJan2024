@@ -12,49 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a273f4416a184b8f9c7042dc093c309, type: 3}
   m_Name: EnemiesDataScriptableObject
   m_EditorClassIdentifier: 
-  Enemies:
-  - Type: 1
-    Prefab: {fileID: 1091707165804768104, guid: ab00072e7b8654ee0bf8df177b150d29,
+  <Enemies>k__BackingField:
+  - <Type>k__BackingField: 1
+    <Prefab>k__BackingField: {fileID: 1091707165804768104, guid: ab00072e7b8654ee0bf8df177b150d29,
       type: 3}
-    Data:
+    <Data>k__BackingField:
       <Class>k__BackingField: 1
       <AttackPower>k__BackingField: 2
       <Health>k__BackingField: 1
       <Speed>k__BackingField: 1
       <SpawnRate>k__BackingField: 0.4
-  - Type: 2
-    Prefab: {fileID: 5035964999499245359, guid: c11605cdbb7de4af3ac0562823707294,
+  - <Type>k__BackingField: 2
+    <Prefab>k__BackingField: {fileID: 5035964999499245359, guid: c11605cdbb7de4af3ac0562823707294,
       type: 3}
-    Data:
+    <Data>k__BackingField:
       <Class>k__BackingField: 1
       <AttackPower>k__BackingField: 1
       <Health>k__BackingField: 2
       <Speed>k__BackingField: 1
       <SpawnRate>k__BackingField: 0.3
-  - Type: 3
-    Prefab: {fileID: 8045960173024280345, guid: bfb530e8bbe6a465ebda15e87360a881,
+  - <Type>k__BackingField: 3
+    <Prefab>k__BackingField: {fileID: 8045960173024280345, guid: bfb530e8bbe6a465ebda15e87360a881,
       type: 3}
-    Data:
+    <Data>k__BackingField:
       <Class>k__BackingField: 3
       <AttackPower>k__BackingField: 1
       <Health>k__BackingField: 1
       <Speed>k__BackingField: 2
       <SpawnRate>k__BackingField: 0.2
-  - Type: 4
-    Prefab: {fileID: 3154278810743575378, guid: 58179110af7c944a8a3b7b9a65172324,
+  - <Type>k__BackingField: 4
+    <Prefab>k__BackingField: {fileID: 3154278810743575378, guid: 58179110af7c944a8a3b7b9a65172324,
       type: 3}
-    Data:
+    <Data>k__BackingField:
       <Class>k__BackingField: 2
       <AttackPower>k__BackingField: 1
       <Health>k__BackingField: 1
       <Speed>k__BackingField: 1
       <SpawnRate>k__BackingField: 0.8
-  - Type: 5
-    Prefab: {fileID: 8949325234925616757, guid: d9fe5c64a8bb84c5a99644cbe62fda88,
+  - <Type>k__BackingField: 5
+    <Prefab>k__BackingField: {fileID: 8949325234925616757, guid: d9fe5c64a8bb84c5a99644cbe62fda88,
       type: 3}
-    Data:
+    <Data>k__BackingField:
       <Class>k__BackingField: 2
       <AttackPower>k__BackingField: 5
       <Health>k__BackingField: 1
-      <Speed>k__BackingField: 2
+      <Speed>k__BackingField: 1
       <SpawnRate>k__BackingField: 0.1

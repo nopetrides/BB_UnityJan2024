@@ -1,17 +1,32 @@
-using BB;
+using System.Threading;
+using OpenAI;
 using UnityEngine;
 
-public class DemoManager : MonoBehaviour
+namespace BB
 {
-    [SerializeField] private EnemyManager EnemyPool;
-    [SerializeField] private SpawnPoint[] Spawners;
-    // Start is called before the first frame update
-    void Start()
+    public class DemoManager : MonoBehaviour
     {
-        EnemyPool.InitializePool();
-        foreach (var sp in Spawners)
+        [SerializeField] private EnemyManager EnemyPool;
+        [SerializeField] private DayCycleManager DayCycle;
+        [SerializeField] private SpawnPoint[] Spawners;
+
+        private OpenAIApi _openAi = new();
+        private CancellationTokenSource _token = new CancellationTokenSource();
+        
+        // Start is called before the first frame update
+        private void Start()
         {
-            sp.Init(EnemyPool);
+            EnemyPool.InitializePool();
+            DayCycle.Init(EnemyPool);
+            foreach (var sp in Spawners)
+            {
+                sp.Init(EnemyPool);
+            }
+        }
+
+        private void OpenAI()
+        {
+            
         }
     }
 }

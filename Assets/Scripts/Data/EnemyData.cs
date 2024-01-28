@@ -25,10 +25,11 @@ namespace BB
             Archer,
             Assassin
         }
-        [field: SerializeField] public EnemyClass Class { get; private set; }
-        [field: SerializeField] public float AttackPower { get; private set; }
-        [field: SerializeField] public float Health { get; private set; }
-        [field: SerializeField] public float Speed { get; private set; }
-        [field: SerializeField] public float SpawnRate { get; private set; }
+        [field: SerializeField] public EnemyClass Class { get; set; }
+        [field: SerializeField] public float AttackPower { get; set; }
+        [field: SerializeField] public float Health { get; set; }
+        [field: SerializeField] public float Speed { get; set; }
+        [field: SerializeField] public float SpawnRate { get; set; }
+        [field: SerializeField] public bool CanSpawn { get; set; } = true;
     }
 }

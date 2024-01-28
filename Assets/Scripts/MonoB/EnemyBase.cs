@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BB
 {
@@ -9,6 +9,9 @@ namespace BB
     internal class EnemyBase : MonoBehaviour
     {
         [SerializeField] private Rigidbody Rb;
+        [SerializeField] private Canvas WorldCanvas;
+        [SerializeField] private Text WorldText;
+        
         private EnemyManager _manager;
         private EnemyData.EnemyType _type;
         private EnemyData _data;
@@ -30,6 +33,8 @@ namespace BB
             _currentAttackPower = _data.AttackPower;
             _currentHealth = _data.Health;
             _currentSpeed = _data.Speed;
+            WorldText.text = $"Type: {_type}\nClass: {_data.Class}\nAttack: {_currentAttackPower}\nHealth: {_currentHealth}\nSpeed: {_currentSpeed}\nSpawn Rate: {_data.SpawnRate, 0:0.00)}";
+            WorldCanvas.transform.rotation = transform.rotation;
         }
 
         private void OnEnable()

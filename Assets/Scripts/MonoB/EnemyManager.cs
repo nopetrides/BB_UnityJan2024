@@ -38,6 +38,16 @@ namespace BB
             }
         }
 
+        internal EnemiesScriptable GetRuntimeData()
+        {
+            return _runtimeData;
+        }
+
+        internal void SetRuntimeData(EnemiesScriptable data)
+        {
+            _runtimeData = data;
+        }
+
         private EnemyBase CreatePooledItem(EnemyData.EnemyType t)
         {
             var toCreate = GetEnemy(t);

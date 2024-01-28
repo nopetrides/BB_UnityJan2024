@@ -35,7 +35,8 @@ namespace BB
             {
                 foreach (var enemy in _enemyPool.AllEnemies)
                 {
-                    _spawnData.Add(enemy.Type, enemy.Data);
+                    if (enemy.Data.CanSpawn)
+                        _spawnData.Add(enemy.Type, enemy.Data);
                 }
             }
             else
@@ -44,7 +45,8 @@ namespace BB
                 {
                     foreach (var enemy in _enemyPool.GetEnemiesByType(t))
                     {
-                        _spawnData.Add(t, enemy.Data);
+                        if (enemy.Data.CanSpawn)
+                            _spawnData.Add(t, enemy.Data);
                     }
                 }
 
@@ -52,7 +54,8 @@ namespace BB
                 {
                     foreach (var enemy in enemyPool.GetEnemiesByClass(c))
                     {
-                        _spawnData.Add(enemy.Type, enemy.Data);
+                        if (enemy.Data.CanSpawn)
+                            _spawnData.Add(enemy.Type, enemy.Data);
                     }
                 }
             }
