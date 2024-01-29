@@ -10,21 +10,19 @@ namespace BB
     {
         [SerializeField] private EnemyManager EnemyPool;
         [SerializeField] private DayCycleManager DayCycle;
+
         [SerializeField] private SpawnPoint[] Spawners;
         //[SerializeField] private MeshRenderer Floor;
 
         private OpenAIApi _openAi;
         //private CancellationTokenSource _token = new ();
-        
+
         // Start is called before the first frame update
         private void Start()
         {
             EnemyPool.InitializePool();
             DayCycle.Init(EnemyPool);
-            foreach (var sp in Spawners)
-            {
-                sp.Init(EnemyPool);
-            }
+            foreach (var sp in Spawners) sp.Init(EnemyPool);
             // Need a valid account
             //OpenAI();
         }

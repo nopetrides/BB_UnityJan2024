@@ -4,7 +4,7 @@ public class KeepAbove : MonoBehaviour
 {
     [SerializeField] private Rigidbody Parent;
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         transform.position = Parent.position + Vector3.up;
     }

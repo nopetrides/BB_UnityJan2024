@@ -9,19 +9,13 @@ namespace BB
 
         private void Start()
         {
-            foreach (var c in IgnoredColliders)
-            {
-                Physics.IgnoreCollision(OwnCollider, c);
-            }
+            foreach (var c in IgnoredColliders) Physics.IgnoreCollision(OwnCollider, c);
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             var enemy = collision.gameObject.GetComponent<EnemyBase>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage();
-            }
+            if (enemy != null) enemy.TakeDamage();
         }
     }
 }

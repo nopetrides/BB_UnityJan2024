@@ -9,6 +9,14 @@ namespace BB
     [Serializable]
     public class EnemyData
     {
+        public enum EnemyClass
+        {
+            None = 0,
+            Grunt,
+            Archer,
+            Assassin
+        }
+
         public enum EnemyType
         {
             None = 0,
@@ -18,13 +26,7 @@ namespace BB
             Green,
             Yellow
         }
-        public enum EnemyClass
-        {
-            None = 0,
-            Grunt,
-            Archer,
-            Assassin
-        }
+
         [field: SerializeField] public EnemyClass Class { get; set; }
         [field: SerializeField] public float AttackPower { get; set; }
         [field: SerializeField] public float Health { get; set; }
