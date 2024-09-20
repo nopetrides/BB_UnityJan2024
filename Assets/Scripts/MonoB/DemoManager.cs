@@ -1,4 +1,3 @@
-using OpenAI;
 using UnityEngine;
 
 //using System.Linq;
@@ -13,8 +12,7 @@ namespace BB
 
         [SerializeField] private SpawnPoint[] Spawners;
         //[SerializeField] private MeshRenderer Floor;
-
-        private OpenAIApi _openAi;
+        
         //private CancellationTokenSource _token = new ();
 
         // Start is called before the first frame update
